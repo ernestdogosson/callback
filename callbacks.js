@@ -23,5 +23,12 @@ const addNumber = (a, b, printResult) => {
 const printResult = (result) => {
     console.log(result);
 };
-addNumber(10, 15, printResult);
+const main = (word, callback) => {
+    return callback(word);
+};
+const toUpper = (text) => {
+    return text.toUpperCase();
+};
+const result = main("ernest", toUpper);
+console.log(result);
 //# sourceMappingURL=callbacks.js.map

@@ -44,4 +44,18 @@ const printResult = (result: number): void => {
   console.log(result);
 };
 
-addNumber(10, 15, printResult);
+// addNumber(10, 15, printResult);
+
+// 4
+type toUpperFunc = (text: string) => string;
+
+const main = (word: string, callback: toUpperFunc): string => {
+  return callback(word);
+};
+
+const toUpper = (text: string) => {
+  return text.toUpperCase();
+};
+
+const result = main("ernest", toUpper);
+console.log(result);
