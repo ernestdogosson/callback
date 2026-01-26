@@ -16,5 +16,12 @@ const sayHelloLater = (printMessage) => {
 const printMessage = (message) => {
     console.log(message);
 };
-sayHelloLater(printMessage);
+const addNumber = (a, b, printResult) => {
+    const result = a + b;
+    printResult(result);
+};
+const printResult = (result) => {
+    console.log(result);
+};
+addNumber(10, 15, printResult);
 //# sourceMappingURL=callbacks.js.map

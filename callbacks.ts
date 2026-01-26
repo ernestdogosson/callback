@@ -26,4 +26,22 @@ const printMessage = (message: string): void => {
   console.log(message);
 };
 
-sayHelloLater(printMessage);
+// sayHelloLater(printMessage);
+
+// 3
+type printResultFunc = (result: number) => void;
+
+const addNumber = (
+  a: number,
+  b: number,
+  printResult: printResultFunc,
+): void => {
+  const result: number = a + b;
+  printResult(result);
+};
+
+const printResult = (result: number): void => {
+  console.log(result);
+};
+
+addNumber(10, 15, printResult);
