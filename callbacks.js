@@ -7,5 +7,14 @@ const greetings = (printGrettings) => {
 const printGrettings = (message) => {
     console.log(message);
 };
-greetings(printGrettings);
+const sayHelloLater = (printMessage) => {
+    setTimeout(() => {
+        const message = "Hi, I am late!";
+        printMessage(message);
+    }, 2000);
+};
+const printMessage = (message) => {
+    console.log(message);
+};
+sayHelloLater(printMessage);
 //# sourceMappingURL=callbacks.js.map
