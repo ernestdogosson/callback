@@ -30,5 +30,17 @@ const toUpper = (text) => {
     return text.toUpperCase();
 };
 const result = main("ernest", toUpper);
-console.log(result);
+// console.log(result);
+// 5
+const pizzaOrder = (showStatus) => {
+    console.log("Preparing food...");
+    setTimeout(() => {
+        const status = "Your pizza is ready.";
+        showStatus(status);
+    }, 3000);
+};
+const showStatus = (status) => {
+    console.log(status);
+};
+pizzaOrder(showStatus);
 //# sourceMappingURL=callbacks.js.map

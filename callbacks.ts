@@ -58,4 +58,19 @@ const toUpper = (text: string) => {
 };
 
 const result = main("ernest", toUpper);
-console.log(result);
+// console.log(result);
+
+// 5
+const pizzaOrder = (showStatus: (status: string) => void): void => {
+  console.log("Preparing food...");
+  setTimeout(() => {
+    const status: string = "Your pizza is ready.";
+    showStatus(status);
+  }, 3000);
+};
+
+const showStatus = (status: string): void => {
+  console.log(status);
+};
+
+pizzaOrder(showStatus);
