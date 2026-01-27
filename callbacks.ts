@@ -73,4 +73,55 @@ const showStatus = (status: string): void => {
   console.log(status);
 };
 
-pizzaOrder(showStatus);
+// pizzaOrder(showStatus);
+
+// 6
+const repeat3x = (callback: (message: string) => void): void => {
+  callback("Insert you card to pay please!");
+
+  setTimeout(() => {
+    callback("Processing payment...");
+  }, 2000);
+
+  setTimeout(() => {
+    callback("Payment succesfull.");
+  }, 4000);
+};
+
+const showMessage = (message: string): void => {
+  console.log(message);
+};
+
+// repeat3x(showMessage);
+
+// 7
+const downloadFile = (url: string, onCall: (msg: string) => void): void => {
+  setTimeout(() => {
+    const msg: string = `Downloaded data from: ${url}`;
+    onCall(msg);
+  }, 2000);
+};
+
+const showDownlaod = (msg: string): void => {
+  console.log(msg);
+};
+
+// downloadFile("https://loadsofthings@example.com", showDownlaod);
+
+// 8
+type chance = () => void;
+
+const mainFunc = (n: number, success: chance, error: chance): void => {
+  n = Math.random();
+  n < 0.5 ? success() : error();
+};
+
+const success = () => {
+  console.log("success");
+};
+
+const error = () => {
+  console.log("error");
+};
+
+mainFunc(5, success, error);

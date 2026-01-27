@@ -42,5 +42,40 @@ const pizzaOrder = (showStatus) => {
 const showStatus = (status) => {
     console.log(status);
 };
-pizzaOrder(showStatus);
+// pizzaOrder(showStatus);
+// 6
+const repeat3x = (callback) => {
+    callback("Insert you card to pay please!");
+    setTimeout(() => {
+        callback("Processing payment...");
+    }, 2000);
+    setTimeout(() => {
+        callback("Payment succesfull.");
+    }, 4000);
+};
+const showMessage = (message) => {
+    console.log(message);
+};
+// repeat3x(showMessage);
+// 7
+const downloadFile = (url, onCall) => {
+    setTimeout(() => {
+        const msg = `Downloaded data from: ${url}`;
+        onCall(msg);
+    }, 2000);
+};
+const showDownlaod = (msg) => {
+    console.log(msg);
+};
+const mainFunc = (n, success, error) => {
+    n = Math.random();
+    n < 0.5 ? success() : error();
+};
+const success = () => {
+    console.log("success");
+};
+const error = () => {
+    console.log("error");
+};
+mainFunc(5, success, error);
 //# sourceMappingURL=callbacks.js.map
