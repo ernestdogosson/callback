@@ -124,4 +124,33 @@ const error = () => {
   console.log("error");
 };
 
-mainFunc(5, success, error);
+// mainFunc(5, success, error);
+
+// 9
+type Operator = "add" | "subtract" | "multiply" | "divide";
+
+const calculator = (
+  a: number,
+  b: number,
+  operator: Operator,
+  onResult: (result: number) => void,
+): void => {
+  const operations: Record<Operator, (a: number, b: number) => number> = {
+    add: (a, b) => a + b,
+    subtract: (a, b) => a - b,
+    multiply: (a, b) => a * b,
+    divide: (a, b) => a / b,
+  };
+
+  const result = operations[operator](a, b);
+  onResult(result);
+};
+
+const showResult = (result: number): void => {
+  console.log(result);
+};
+
+calculator(8, 2, "add", showResult);
+calculator(8, 2, "subtract", showResult);
+calculator(8, 2, "multiply", showResult);
+calculator(8, 2, "divide", showResult);

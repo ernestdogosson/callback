@@ -77,5 +77,21 @@ const success = () => {
 const error = () => {
     console.log("error");
 };
-mainFunc(5, success, error);
+const calculator = (a, b, operator, onResult) => {
+    const operations = {
+        add: (a, b) => a + b,
+        subtract: (a, b) => a - b,
+        multiply: (a, b) => a * b,
+        divide: (a, b) => a / b,
+    };
+    const result = operations[operator](a, b);
+    onResult(result);
+};
+const showResult = (result) => {
+    console.log(result);
+};
+calculator(8, 2, "add", showResult);
+calculator(8, 2, "subtract", showResult);
+calculator(8, 2, "multiply", showResult);
+calculator(8, 2, "divide", showResult);
 //# sourceMappingURL=callbacks.js.map
