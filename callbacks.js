@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// 1
 const greetings = (printGrettings) => {
     const message = "Hello from callback!";
     printGrettings(message);
@@ -7,6 +8,8 @@ const greetings = (printGrettings) => {
 const printGrettings = (message) => {
     console.log(message);
 };
+// greetings(printGrettings);
+// 2
 const sayHelloLater = (printMessage) => {
     setTimeout(() => {
         const message = "Hi, I am late!";
@@ -16,6 +19,8 @@ const sayHelloLater = (printMessage) => {
 const printMessage = (message) => {
     console.log(message);
 };
+// sayHelloLater(printMessage);
+// 3
 const addNumber = (a, b, printResult) => {
     const result = a + b;
     printResult(result);
@@ -23,6 +28,8 @@ const addNumber = (a, b, printResult) => {
 const printResult = (result) => {
     console.log(result);
 };
+// addNumber(10, 15, printResult);
+// 4
 const main = (word, callback) => {
     return callback(word);
 };
@@ -90,8 +97,32 @@ const calculator = (a, b, operator, onResult) => {
 const showResult = (result) => {
     console.log(result);
 };
-calculator(8, 2, "add", showResult);
-calculator(8, 2, "subtract", showResult);
-calculator(8, 2, "multiply", showResult);
-calculator(8, 2, "divide", showResult);
+// calculator(8, 2, "add", showResult);
+// calculator(8, 2, "subtract", showResult);
+// calculator(8, 2, "multiply", showResult);
+// calculator(8, 2, "divide", showResult);
+// 10
+const step1 = (callback) => {
+    setTimeout(() => {
+        console.log("Step 1 done");
+        callback();
+    }, 1000);
+};
+const step2 = (callback) => {
+    setTimeout(() => {
+        console.log("Step 2 done");
+        callback();
+    }, 1000);
+};
+const step3 = () => {
+    setTimeout(() => {
+        console.log("Step 3 done");
+    }, 1000);
+};
+// Run them in sequence
+step1(() => {
+    step2(() => {
+        step3();
+    });
+});
 //# sourceMappingURL=callbacks.js.map

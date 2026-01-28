@@ -1,7 +1,5 @@
 // 1
-type printGrettingsFunc = (message: string) => void;
-
-const greetings = (printGrettings: printGrettingsFunc): void => {
+const greetings = (printGrettings: (message: string) => void): void => {
   const message: string = "Hello from callback!";
   printGrettings(message);
 };
@@ -13,9 +11,7 @@ const printGrettings = (message: string): void => {
 // greetings(printGrettings);
 
 // 2
-type printMessageFunc = (message: string) => void;
-
-const sayHelloLater = (printMessage: printGrettingsFunc): void => {
+const sayHelloLater = (printMessage: (message: string) => void): void => {
   setTimeout(() => {
     const message: string = "Hi, I am late!";
     printMessage(message);
@@ -29,12 +25,10 @@ const printMessage = (message: string): void => {
 // sayHelloLater(printMessage);
 
 // 3
-type printResultFunc = (result: number) => void;
-
 const addNumber = (
   a: number,
   b: number,
-  printResult: printResultFunc,
+  printResult: (result: number) => void,
 ): void => {
   const result: number = a + b;
   printResult(result);
@@ -47,9 +41,7 @@ const printResult = (result: number): void => {
 // addNumber(10, 15, printResult);
 
 // 4
-type toUpperFunc = (text: string) => string;
-
-const main = (word: string, callback: toUpperFunc): string => {
+const main = (word: string, callback: (text: string) => string): string => {
   return callback(word);
 };
 
@@ -150,7 +142,35 @@ const showResult = (result: number): void => {
   console.log(result);
 };
 
-calculator(8, 2, "add", showResult);
-calculator(8, 2, "subtract", showResult);
-calculator(8, 2, "multiply", showResult);
-calculator(8, 2, "divide", showResult);
+// calculator(8, 2, "add", showResult);
+// calculator(8, 2, "subtract", showResult);
+// calculator(8, 2, "multiply", showResult);
+// calculator(8, 2, "divide", showResult);
+
+// 10
+const step1 = (callback: () => void): void => {
+  setTimeout(() => {
+    console.log("Step 1 done");
+    callback();
+  }, 1000);
+};
+
+const step2 = (callback: () => void): void => {
+  setTimeout(() => {
+    console.log("Step 2 done");
+    callback();
+  }, 1000);
+};
+
+const step3 = (): void => {
+  setTimeout(() => {
+    console.log("Step 3 done");
+  }, 1000);
+};
+
+// Run them in sequence
+step1(() => {
+  step2(() => {
+    step3();
+  });
+});
